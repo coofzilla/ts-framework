@@ -1,14 +1,3 @@
-import { User } from './models/User';
+import axios from 'axios';
 
-const user = new User({ name: 'Jay', age: 31 });
-
-user.on('change', () => {
-  console.log('Change Event');
-});
-user.on('mouse', () => {
-  console.log('Mouse Event');
-});
-
-user.trigger('change');
-user.trigger('mouse');
-user.trigger('nothing');
+axios.get('http://localhost:3000/users');
