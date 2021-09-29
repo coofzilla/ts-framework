@@ -2,7 +2,13 @@ import { User } from './models/User';
 
 const user = new User({ name: 'Jay', age: 31 });
 
-user.set({ name: 'chris', age: 54 });
+user.on('change', () => {
+  console.log('Change Event');
+});
+user.on('mouse', () => {
+  console.log('Mouse Event');
+});
 
-console.log(user.get('name'));
-console.log(user.get('age'));
+user.trigger('change');
+user.trigger('mouse');
+user.trigger('nothing');
