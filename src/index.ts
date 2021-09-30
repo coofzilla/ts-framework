@@ -1,20 +1,9 @@
 import { User } from './models/User';
 
-const user = User.buildUser({ id: 1 });
+const collection = User.buildUserCollection();
 
-user.on('change', () => {
-  console.log(user);
+collection.on('change', () => {
+  console.log(collection);
 });
 
-user.fetch();
-//reminder on 'this'
-//this refers to left of function call
-
-// const colors = {
-//   color: 'red',
-//   printcolor() {
-//     console.log(this.color);
-//   },
-// };
-
-// colors.printcolor();
+collection.fetch();
