@@ -1,14 +1,12 @@
 import { User } from './models/User';
 
-const user = new User({ name: 'third record', age: 0 });
+const user = new User({ id: 1, name: 'Tob', age: 30 });
 
-console.log(user.get('name'));
-
-user.on('change', () => {
-  console.log('User was changed');
+user.on('save', () => {
+  console.log(user);
 });
 
-user.trigger('change');
+user.save();
 
 //reminder on 'this'
 //this refers to left of function call
