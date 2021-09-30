@@ -2,14 +2,22 @@ import { User } from './models/User';
 
 const user = new User({ name: 'third record', age: 0 });
 
-//accessors "getter"
-class Person {
-  constructor(public firstName: string, public lastName: string) {}
+console.log(user.get('name'));
 
-  get fullName(): string {
-    return `${this.firstName} ${this.lastName}`;
-  }
-}
-const person = new Person('firstname', 'lastname');
-//don't envoke with (), think just "getting" the information without changing
-console.log(person.fullName);
+user.on('change', () => {
+  console.log('User was changed');
+});
+
+user.trigger('change');
+
+//reminder on 'this'
+//this refers to left of function call
+
+// const colors = {
+//   color: 'red',
+//   printcolor() {
+//     console.log(this.color);
+//   },
+// };
+
+// colors.printcolor();

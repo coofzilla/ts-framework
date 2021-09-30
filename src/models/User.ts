@@ -19,4 +19,28 @@ export class User {
   constructor(attrs: UserProps) {
     this.attributes = new Attributes<UserProps>(attrs);
   }
+  //getting reference to method on eventing class
+  get on() {
+    return this.events.on;
+  }
+  
+  get trigger() {
+    return this.events.trigger;
+  }
+
+  get get() {
+    return this.attributes.get;
+  }
 }
+
+//accessors "getter"
+// class Person {
+//   constructor(public firstName: string, public lastName: string) {}
+
+//   get fullName(): string {
+//     return `${this.firstName} ${this.lastName}`;
+//   }
+// }
+// const person = new Person('firstname', 'lastname');
+//don't envoke with (), think just "getting" the information without changing
+// console.log(person.fullName);
